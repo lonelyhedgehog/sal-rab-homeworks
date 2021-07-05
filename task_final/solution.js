@@ -34,19 +34,19 @@
 // }
 
 function sendRequest(name, phone, address, goods, sum) {
-    let data = {client:{name, phone}, order: {address, sum}, goods: []};
+    let data = {client: {},goods: [], order: {}};
 
     let countOfGoods = goods.length;
 
     for (let i = 0; i <= countOfGoods; i ++) {
-        goods[i].title = data.goods.push(goods[i].title);
-        goods[i].count = data.goods.push(goods[i].count);
+        goods[i].title.count = title.count;
+        data.goods.push(goods[i]);
     }
 
-    data.order.address = `${address}`;
+    data.order.address = `${address.street}, ${address.house}, ${address.entrance}, ${address.floor}, ${address.flat} `;
     data.order.sum = sum;
 
-    data.client = name;
+    data.client = name + ' - ' + phone;
 
     let jsonData = JSON.stringify(data);
 
